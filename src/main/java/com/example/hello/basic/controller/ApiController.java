@@ -1,4 +1,4 @@
-package com.example.hello.controller;
+package com.example.hello.basic.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,4 +12,6 @@ public class ApiController {
     public String hello(){
         return "hello spring boot!";
     }
+
+
 }

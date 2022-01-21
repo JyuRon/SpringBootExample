@@ -1,0 +1,39 @@
+**** IOC, DI ****
+
+@Component("sample")
+    해당 클래스를 빈으로 등록하며 default값은 첫글자가 소문자이다.
+    이름 지정이 가능하다.
+
+@Qualifier("beanName")
+    컴포넌트로 지정된 클래스가 객체를 받아 빈이 생성되어야 하는데
+    스프링 컨테이너에 동일한 객체가 있는 경우 에러가 발생
+	이 경우 빈의 이름을 직접 지정하여 객체를 주입한다.
+
+@Configuration
+    해당 어노테이션은 @Component로 지정되어 있으며 사용자가 필요한 @Bean을
+    여러개 만들 떄 사용한다.
+
+@Bean("name")
+    동일한 이름의 Bean이 생성이 될 경우를 차단하기 위해 직접 이름을 지정한다.
+
+
+
+
+
+
+*** Spring Context에서 직접 Bean을 가져오기 ***
+
+ioc -> ApplicationContextProvider 참고
+ApplicationContext context = ApplicationContextProvider.getContext();
+
+UrlEncoder urlEncoder = context.getBean(UrlEncoder.class);
+Encoder encoder = context.getBean("base64Encoder",Encoder.class);
+
+
+
+
+
+
+
+
+

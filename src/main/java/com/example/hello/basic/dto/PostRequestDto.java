@@ -1,8 +1,6 @@
-package com.example.hello.dto;
+package com.example.hello.basic.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.PropertyNamingStrategy;
-import com.fasterxml.jackson.databind.annotation.JsonNaming;
 
 
 public class PostRequestDto {

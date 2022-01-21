@@ -1,4 +1,4 @@
-package com.example.hello.dto;
+package com.example.hello.basic.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

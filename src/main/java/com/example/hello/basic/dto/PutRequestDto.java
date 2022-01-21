@@ -1,16 +1,17 @@
-package com.example.hello.dto;
+package com.example.hello.basic.dto;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 
+import java.util.List;
+
+// @JsonProperty 의 경우 하나의 멤버별로 설정이 가능하였지만
+// @JsonNaming의 경우 클래스 전체에 적용한다
 @JsonNaming(value = PropertyNamingStrategy.SnakeCaseStrategy.class)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public class User {
+public class PutRequestDto {
     private String name;
     private int age;
-    private String phoneNumber;
-    private String address;
+    private List<CarDto> carList;
 
     public String getName() {
         return name;
@@ -28,29 +29,21 @@ public class User {
         this.age = age;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public List<CarDto> getCarList() {
+        return carList;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
+    public void setCarList(List<CarDto> carList) {
+        this.carList = carList;
     }
 
     @Override
     public String toString() {
-        return "User{" +
+        return "PostRequestDto{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", address='" + address + '\'' +
+                ", carList=" + carList +
                 '}';
     }
+
 }
