@@ -22,6 +22,7 @@ public class GetApiController {
     // http://localhost:9090/api/get/path-variable/{name}
     // @PathVariable String 변수 부분에서 어쩔 수 없이 다른 변수 명을 사용할 경우 직접 name 지정을 한다
     // 정석 --> @PathVariable String name
+    // 대문자 사용하는 것을 권장하지 않기 때문에 가독성을 위해 - 를 사용한다.
     @GetMapping("/path-variable/{name}")
     public String pathVariable(@PathVariable(name = "name") String pathName){
 
