@@ -1,7 +1,6 @@
 package com.example.hello;
 
-import com.example.hello.basic.dto.ObjectMapperTestDto;
-import com.example.hello.basic.dto.User;
+import com.example.hello.rest.dto.ObjectMapperTestDto;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.DisplayName;
