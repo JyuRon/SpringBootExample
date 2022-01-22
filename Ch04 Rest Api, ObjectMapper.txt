@@ -71,7 +71,8 @@ getter/setter로 생성된 method가 아닌 경우 에러를 유발함
     objectMapper.readValue(text, ObjectMapperTestDto.class)
     ObjectMapperTestDto{name='steve', age=10, phoneNumber='010-1234-4567'}
 
-
+(3) json 문법 검사 & prettyString
+    https://jsonformatter.curiousconcept.com/
 
 
 

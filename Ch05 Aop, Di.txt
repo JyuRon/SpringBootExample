@@ -16,6 +16,11 @@
 @Bean("name")
     동일한 이름의 Bean이 생성이 될 경우를 차단하기 위해 직접 이름을 지정한다.
 
+@Autowired
+    DI를 위한 곳에 사용
+
+@Resource
+    @Autowired + @Qualifier 의 개념으로 이해해
 
 
 
