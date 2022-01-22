@@ -70,3 +70,18 @@ getter/setter로 생성된 method가 아닌 경우 에러를 유발함
     default 생성자를 필요로 한다.
     objectMapper.readValue(text, ObjectMapperTestDto.class)
     ObjectMapperTestDto{name='steve', age=10, phoneNumber='010-1234-4567'}
+
+
+
+
+
+*** InteliJ UTF-8 Setting ****
+ObjectMapper를 사용하는 과정에서 json의 경우 기본 인코딩이 UTF-8이기 때문에
+변경해주는 과정이 필요하다.(윈도우 한정)
+
+FILE -> SETTING에서 encoding검색후 모두 utf-8로 변경
+
+help >> find action
+
+edit custom vm option에서 마지막줄에
+-Dfile.encoding=UTF-8
