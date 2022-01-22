@@ -19,7 +19,7 @@ public class ParameterAop {
     // 어떠한 부분에 적용시킬 것인지 정한다(외부에서 바라보는 시각으로 : aop)
     // 표현식의 경우 검색하면서
     // 해당내용은 controller패키지 하위의 모든 클래스에 적용
-    @Pointcut("execution(* com.example.aop.controller..*.*(..))")
+    @Pointcut("execution(* com.example.hello.aop.controller..*.*(..))")
     private void cut(){
         // 별짓을 해봐도 이건 실행안됨
         System.out.println("cutcutdut");

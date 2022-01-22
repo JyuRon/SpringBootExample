@@ -16,10 +16,10 @@ import java.util.Base64;
 @Component
 public class DecodeAop {
 
-    @Pointcut("execution(* com.example.aop.controller..*.*(..))")
+    @Pointcut("execution(* com.example.hello.aop.controller..*.*(..))")
     private void cut(){}
 
-    @Pointcut("@annotation(com.example.aop.annotation.Decode)")
+    @Pointcut("@annotation(com.example.hello.aop.annotation.Decode)")
     private void enableDecode(){}
 
     @Before("cut() && enableDecode()")

@@ -74,7 +74,29 @@ https://velog.io/@damiano1027/Spring-Valid-Validated%EB%A5%BC-%EC%9D%B4%EC%9A%A9
 
 
 
+**** Exception ****
+@ControllerAdvice
+	@Controller처럼 특정 기능을 한다고 선언
+	메소드에 @ExceptionHandler 붙여 핸들링
+	Global 예외 처리 및 특정 package / Controller 예외처리
 
+@RestControllerAdvice(basePackageClasses = ApiController.class)
+	하나의 class만 담당하는 것이 아닌 속한 패키지가 전부 대상이 된다.
+
+@RestControllerAdvice(basePackages = "com.example.exception.controller")
+	해당패키지에 대해서만 예외를 처리하며 default는 전부이다.
+
+@RestControllerAdvice(annotations = RestController.class)
+	해당 어노테이션이 붙은 것에만 해당
+
+
+@ExceptionHandler
+	특정 예외를 지정하여 처리가능
+	Controller에서 지정한 Handler가 우선순위를 가지게 된다.
+
+	// vale값을 지정하지 않으면 method 매개변수에 해당하는 exception종류를 받는다
+	@ExceptionHandler(value = Exception.class)
+	public ResponseEntity exception(Exception e){}
 
 
 

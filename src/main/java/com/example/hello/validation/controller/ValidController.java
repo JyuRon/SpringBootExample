@@ -16,6 +16,8 @@ import javax.validation.Valid;
 @RequestMapping("/valid")
 public class ValidController {
 
+
+
     @PostMapping("/user")
     public Object user(@Valid @RequestBody User user, BindingResult bindingResult){
 
