@@ -1,0 +1,42 @@
+**** Filter ****
+
+- Filter 동작 방식
+    request -> filter(전처리) -> controller -> filter(후처리)-> response
+
+class A implements Filter{} ---> import javax.servlet.Filter
+
+@Override
+public void doFilter(
+    ServletRequest request,
+    ServletResponse response,
+    FilterChain chain) throws IOException, ServletException {
+
+    // Filter 의 전처리, 후처리의 기준점
+    chain.doFilter(httpServletRequest, httpServletResponse);
+}
+
+
+- request, response의 body 내용 읽어오기
+    BufferedReader br = httpServletRequest.getReader();
+    이 방법으로 filter에서 내용을 읽어오면 controller에서 내용을 읽어오지 못한다.
+    spring에서 stream(1회성) 형태로 내용을 제공하기 때문이다.
+
+
+- contentCaching 으로 재사용 하기
+     ContentCachingRequestWrapper httpServletRequest =
+        new ContentCachingRequestWrapper((HttpServletRequest)request);
+     ContentCachingResponseWrapper httpServletResponse =
+        new ContentCachingResponseWrapper((HttpServletResponse) response);
+
+
+- request caching
+    ContentCachingRequestWrapper를 사용해도 여전히 controller에서 body 내용을 읽지 못하는 현상이 발생한다.
+    ContentCachingRequestWrapper 생성자 에서는 cachedContent 크기에 대한 설정만 한다(내용은 들어가지 않는다.)
+    즉, controller가 body 내용을 한번 읽어야만 caching 기능을 정상적으로 사용할 수 있다.
+    이러한 이유로 request body에 대한 내용 출력은 chan.doFilter 이후가 되어야 한다.
+
+- response caching
+    request 와 마찬가지로 filter에서 response의 body 내용을 읽어버리면 client에서 받는 내용은 빈 값이다.
+    spring에서 stream(1회성) 형태로 내용을 제공하기 때문이다.
+    이러한 상황을 해결하고자 ContentCachingRequestWrapper 에는 없는 method인
+    httpServletResponse.copyBodyToResponse() 를 사용하면 client는 정상적인 값을 받을 수 있다.
