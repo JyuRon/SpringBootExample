@@ -17,7 +17,7 @@ import java.io.IOException;
 //@Component
 
 // 특정 URI만 적용하는 방법, 배열로 사용하여 여러개 적용도 가능
-@WebFilter(urlPatterns = "/filter/user/*")
+@WebFilter(urlPatterns = {"/filter/user/*", "/interceptor/*"})
 
 public class GlobalFilter implements Filter {
 
